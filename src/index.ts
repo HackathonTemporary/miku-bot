@@ -1,0 +1,39 @@
+import { Client,GatewayIntentBits,EmbedBuilder } from "discord.js";
+const images:string[]=require("../images.json");
+import * as dotenv from "dotenv";
+dotenv.config();
+const Token=process.env.Bot_Token;
+if(!Token) throw new Error("Bot_Token is not set in env");
+const client=new Client({
+    intents:[GatewayIntentBits.Guilds,
+        GatewayIntentBits.GuildMessages,
+        GatewayIntentBits.MessageContent
+    ]
+});
+const prefix="!";
+client.on(`ready`,()=>{
+    console.log(`Logged in as ${client.user?.tag}`)
+});
+client.on(`messageCreate`,async (message)=>{
+    if(message.author.bot) return;
+    if(!message.content.startsWith(prefix)) return;
+    const [cmd]=message.content.slice(prefix.length).trim().split(/\s+/);
+    if(cmd==='miku')
+    {
+        if(images.length===0) 
+        {
+            return message.reply("No Miku images available!");
+        }
+        const url=images[Math.floor(Math.random()*images.length)];
+        const embed=new EmbedBuilder().setTitle('🎀 Miku Miku oo ee oo 🎀')
+        .setImage(url)
+        .setColor(`#00aaff`)
+        .setFooter({
+            text:"Enjoy your Miku!"
+        });
+        await message.reply({
+            embeds:[embed]
+        });
+    }
+});
+client.login(Token);
