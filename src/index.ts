@@ -3,6 +3,15 @@ const images:string[]=require("../images.json");
 import * as dotenv from "dotenv";
 dotenv.config();
 const Token=process.env.Bot_Token;
+import express from "express";
+const app = express();
+const PORT = process.env.PORT || 3000;
+app.get("/", (req, res) => {
+  res.send("Bot is alive!");
+});
+app.listen(PORT, () => {
+  console.log(`Web server is running on port ${PORT}`);
+});
 if(!Token) throw new Error("Bot_Token is not set in env");
 const client=new Client({
     intents:[GatewayIntentBits.Guilds,
