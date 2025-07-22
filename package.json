@@ -8,7 +8,7 @@
     "dev": "npm run build && npm run start"
   },
   "keywords": [],
-  "author": "Saral Dwivedi",
+  "author": "",
   "license": "ISC",
   "description": "A simple Discord bot that sends cute random Miku plushie images",
   "dependencies": {
