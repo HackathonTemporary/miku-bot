@@ -27,7 +27,7 @@ client.on(`messageCreate`,async (message)=>{
     if(message.author.bot) return;
     if(!message.content.startsWith(prefix)) return;
     const [cmd]=message.content.slice(prefix.length).trim().split(/\s+/);
-    if(cmd==='miku')
+    if(cmd === 'miku' || cmd === 'migu')
     {
         if(images.length===0) 
         {
