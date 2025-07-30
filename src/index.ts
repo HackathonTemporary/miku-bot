@@ -24,6 +24,7 @@ client.on(`ready`,()=>{
     console.log(`Logged in as ${client.user?.tag}`)
 });
 client.on(`messageCreate`,async (message)=>{
+  console.log(`[DEBUG] Got message: ${message.content}`);
     if(message.author.bot) return;
     if(!message.content.startsWith(prefix)) return;
     const [cmd]=message.content.slice(prefix.length).trim().split(/\s+/);
