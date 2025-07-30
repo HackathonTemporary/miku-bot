@@ -45,4 +45,11 @@ client.on(`messageCreate`,async (message)=>{
         });
     }
 });
-client.login(Token);
+console.log("Bot Token exists:", !!Token);
+client.login(Token)
+  .then(() => {
+    console.log("Login successful");
+  })
+  .catch(err => {
+    console.error("❌ Failed to login:", err); 
+  });
