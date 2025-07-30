@@ -34,6 +34,7 @@ client.on(`messageCreate`,async (message)=>{
         {
             return message.reply("No Miku images available!");
         }
+      await message.reply("✅ Miku command received.");
         const url=images[Math.floor(Math.random()*images.length)];
         const embed=new EmbedBuilder().setTitle('🎀 Miku Miku oo ee oo 🎀')
         .setImage(url)
