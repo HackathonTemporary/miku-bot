@@ -48,6 +48,7 @@ client.on(`messageCreate`,async (message)=>{
     }
 });
 console.log("Bot Token exists:", !!Token);
+console.log("Attempting to login with Discord bot...");
 client.login(Token)
   .then(() => {
     console.log("Login successful");
